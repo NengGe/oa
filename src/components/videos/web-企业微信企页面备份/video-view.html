@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>深高校园直播</title>
+
+  <!--标准mui.css-->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <script src="../../js/resp.js"></script>
+  <script src="../../js/layer.js"></script>
+  <script src="../../js/url-search-params.js"></script>
+
+
+  <style>
+    body {
+      /*padding-top: 2.3rem;*/
+      background: #f0f8fc;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .tjheader {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 66;
+      height: 2.0rem;
+    }
+
+    .tjheader .headermain {
+      max-width: 750px;
+      margin: 0 auto;
+      height: 2.0rem;
+      background: #12b7f5;
+      display: flex;
+      display: -webkit-flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .tjheader .headermain .header-left {
+      width: 1.73913rem;
+      position: relative;
+    }
+
+    .tjheader .headermain .header-left .arrow-left {
+      border-right: 2px solid #fff;
+      border-top: 2px solid #fff;
+      height: 0.56522rem;
+      width: 0.56522rem;
+      margin-top: 0.56957rem;
+      margin-left: 0.86957rem;
+      transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
+      border-left: 2px solid transparent;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tjheader .headermain .header-center {
+      width: 100%;
+      color: #fff;
+      text-align: center;
+    }
+
+    .tjheader .headermain .header-center p {
+      font-size: 0.82609rem;
+      line-height: 2.0rem;
+      color: #fff;
+      margin-bottom: 0;
+    }
+
+    .tjheader .headermain .header-center #time-select {
+      width: 4.78261rem;
+      height: 0.86957rem;
+      background: none;
+      border: none;
+      text-align: center;
+      display: inline-block;
+      padding: 0;
+      margin-top: -0.04348rem;
+      font-size: 0.6087rem;
+      color: #fff;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: "iconfont-tj" !important;
+      position: relative;
+    }
+
+    .tjheader .headermain .header-center #time-select::before {
+      content: "\e608";
+      position: absolute;
+      top: -0.13043rem;
+      left: -0.65217rem;
+      font-size: 0.78261rem;
+    }
+
+    .tjheader .headermain .header-center #time-select::after {
+      content: "\e728";
+      position: absolute;
+      top: 0rem;
+      right: -0.6087rem;
+      font-size: 0.6087rem;
+    }
+
+    .tjheader .headermain .header-right {
+      width: 1.73913rem;
+    }
+
+    .videomain {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 0 6px;
+      padding-top: 0.2rem;
+      box-sizing: border-box;
+    }
+
+    .photo {
+      float: left;
+    }
+
+    .videomain .banner {
+      width: 100%;
+    }
+
+    .videomain .banner img {
+      width: 100%;
+    }
+
+    .videomain .lists {
+      padding-top: 4px;
+      width: 100%;
+    }
+
+    .videomain .lists ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .videomain .lists ul li {
+      list-style-type: none;
+      width: 100%;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 4px 4px #eaeef2;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      position: relative;
+    }
+
+    .videomain .lists ul li img {
+      width: 3.4rem;
+      margin-top: 0.4rem;
+      margin-left: 0.65rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .videomain .lists ul li p {
+      display: inline-block;
+      color: #868686;
+      margin-left: 0.6rem;
+      font-size: 0.72rem;
+      line-height: 3.4rem;
+    }
+
+    .videomain .lists ul li p a {
+      color: #868686;
+    }
+
+    .video-btn {
+      float: right;
+      padding-right: 0.6rem;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    .video-btn button {
+      width: 32%;
+      border: none;
+      background: none;
+      height: 1.4rem;
+      margin-top: 0.94rem;
+      font-size: 0.72rem;
+      float: left;
+      width: 2.2rem;
+    }
+
+    .video-btn button.dianbo {
+      background: #ddd;
+      border: 1PX solid #ddd;
+      border-radius: 0.1rem;
+      color: #fff;
+    }
+
+    .video-btn button.zhibo {
+      background: none;
+      border: 1PX solid #12b7f5;
+      border-radius: 0.1rem;
+      color: #12b7f5;
+      margin-left: 0.3rem;
+    }
+
+    .bdsharebuttonbox {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background: #f00;
+      right: 0;
+      top: 0;
+    }
+
+    #video-box {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999999;
+    }
+
+    #video-container {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+    }
+
+    #clothe {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      font-size: 24px;
+      color: #fff;
+      transition: opacity 0.5s ease;
+      -webkit-transition: opacity 0.5s ease;
+    }
+  </style>
+</head>
+
+<body>
+<!-- <div class="tjheader">
+        <div class="headermain">
+            <div class="header-left">
+                <div class="arrow-left" >
+                </div>
+            </div>
+            <div class="header-center">
+                <p>校园直播</p>
+            </div>
+            <div class="header-right"></div>
+        </div>
+    </div> -->
+<div class="videomain">
+  <div class="banner"><img src="../../images/video-photo_03.jpg"></div>
+
+  <div class="lists">
+    <ul>
+      <li>
+        <div class="photo"><img src="../../images/sg-video_02.jpg"></div>
+        <p><a href="#">中心校区</a></p>
+        <div class="video-btn">
+          <button class="dianbo">点播</button>
+          <button  onclick="window.location.href='video-check.html?m3u8=http://9491.liveplay.myqcloud.com/live/9491_gjzx.m3u8&title=深圳市高级中学(集团)-中心校区现场直播&img=../../images/sg-video_02.jpg'" class="zhibo">直播</button>
+          <!-- <a href="#" class="bds_weixin" onclick="weixinShareTimeline()">微信</a> -->
+        </div>
+      </li>
+      <li>
+        <div class="photo"><img src="../../images/sg-video_04.jpg"></div>
+        <p><a href="#">东校区</a></p>
+        <div class="video-btn">
+          <button class="dianbo">点播</button>
+          <button  onclick="window.location.href='video-check.html?m3u8=http://9491.liveplay.myqcloud.com/live/9491_gjzx.m3u8&title=深圳市高级中学(集团)-东校区现场直播&img=../../images/sg-video_04.jpg'" class="zhibo">直播</button>
+          <!-- <a href="#" class="bds_weixin" onclick="weixinShareTimeline()">微信</a> -->
+        </div>
+      </li>
+      <li>
+        <div class="photo"><img src="../../images/sg-video_06.jpg"></div>
+        <p><a href="#">南校区</a></p>
+        <div class="video-btn">
+          <button class="dianbo">点播</button>
+          <button  onclick="window.location.href='video-check.html?m3u8=http://9491.liveplay.myqcloud.com/live/9491_gjzx.m3u8&title=深圳市高级中学(集团)-南校区现场直播&img=../../images/sg-video_06.jpg'" class="zhibo">直播</button>
+          <!-- <a href="#" class="bds_weixin" onclick="weixinShareTimeline()">微信</a> -->
+        </div>
+      </li>
+      <li>
+        <div class="photo"><img src="../../images/sg-video_08.jpg"></div>
+        <p><a href="#">北校区</a></p>
+        <div class="video-btn">
+          <button class="dianbo">点播</button>
+          <button  onclick="window.location.href='video-check.html?m3u8=http://9491.liveplay.myqcloud.com/live/9491_gjzx.m3u8&title=深圳市高级中学(集团)-北校区现场直播&img=../../images/sg-video_08.jpg'" class="zhibo">直播</button>
+          <!-- <a href="#" class="bds_weixin" onclick="weixinShareTimeline()">微信</a> -->
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>
+<script>
+  var dianboBtn = document.querySelectorAll(".dianbo");
+  for (var i = 0; i < dianboBtn.length; i++) {
+    dianboBtn[i].onclick = function() {
+      layer.open({
+        content: '正在开发中',
+        skin: 'msg',
+        time: 2 //2秒后自动关闭
+      });
+    }
+  }
+</script>
+</body>
+
+
+</html>

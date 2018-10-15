@@ -1,0 +1,7 @@
+node_modules
+.vscode
+dist
+.idea
+yarn.lock
+src/modules/ajax-mid/test.js
+src/modules/ajax-mid/test.js

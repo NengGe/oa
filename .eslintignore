@@ -1,0 +1,9 @@
+build/*.js
+config/*.js
+postcss.config.js
+dist/*
+karma.conf.js
+webpack.*
+test/*
+data-mock/*
+/*.js

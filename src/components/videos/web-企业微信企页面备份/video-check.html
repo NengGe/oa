@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>直播间</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-tap-highlight" content="no">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+    }
+
+    /*#video-box {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: none;
+      background: #000;
+    }*/
+
+    #video-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+    }
+
+    .center-title {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      background-color: #00a8d8;
+      box-sizing: border-box;
+      width: 100%;
+      transform: translateY(-50%);
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px;
+    }
+
+    /* #clothe{
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      font-size: 24px;
+      color: #fff;
+      transition: opacity 0.5s ease;
+      -webkit-transition: opacity 0.5s ease;
+      text-decoration: none;
+    } */
+    .vcp-player {
+      z-index: auto;
+      height: 100%;
+    }
+
+    .vcp-error-tips {
+      height: auto;
+      top: 2px;
+      margin-top: 0px
+    }
+  </style>
+</head>
+<body>
+<img id="zhibo-img" src="../../images/video-photo_03.jpg" style="position:absolute; left:-9999px;">
+<!--<div id="lianjie" style="width:0; height:0; opacity:0;"></div>-->
+<!-- <a a href="javascript:void(0)" onClick="javascript :history.back(-1);" id="clothe">✕</a> -->
+<div id="video-container" style="margin: 0px auto;"></div>
+<div class="center-title" id="eCenterTitle"></div>
+
+<script src="./TcPlayer-2.2.0.js"></script>
+<script>
+  if (!Element.prototype.remove) {
+    Element.prototype.remove = function () {
+      this.parentNode.removeChild(this)
+    }
+  }
+
+  function getParams (name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+    var r = window.location.search.substr(1).match(reg)
+    if (r != null) {
+      return decodeURIComponent(r[2])
+    }
+    return null
+  }
+
+  var videoLinkTitle = getParams('title')
+  var videoLinkImg = getParams('img')
+  var zhiboImg = document.getElementById('zhibo-img')
+
+  eCenterTitle.textContent = document.title = videoLinkTitle
+  zhiboImg.src = videoLinkImg
+  eCenterTitle.onclick = function () {
+    tcplayer.play()
+  };
+
+  /*   var clothe = document.getElementById("clothe");
+    setTimeout(function() {
+      clothe.style.opacity ="0";
+    }, 3000);
+    var body = document.body;
+    body.onclick = function(){
+      clothe.style.opacity ="1";
+      setTimeout(function() {
+        clothe.style.opacity ="0";
+      }, 3000);
+    }; */
+  (function () {
+    var rtmp = getParams('rtmp'),
+      flv = getParams('flv'),
+      m3u8 = getParams('m3u8'),
+      mp4 = getParams('mp4'),
+      live = (getParams('live') === 'false' ? false : true),
+      coverpic = getParams('coverpic'),
+      width = getParams('width'),
+      height = getParams('height'),
+      autoplay = (getParams('autoplay') === 'true' ? true : false)
+
+    window.oajs = {
+      getVideoShareParams: function () {
+        var params = {
+          title: videoLinkTitle,
+          content: '',
+          img_url: videoLinkImg,
+          video_url: m3u8 || mp4
+        }
+        if (window.oa && window.oa.emitVideoShareParams) {
+          window.oa.emitVideoShareParams(JSON.stringify(params))
+        }
+        return params
+      }
+    }
+    /**
+     * 视频类型播放优先级
+     * mobile ：m3u8>mp4
+     * PC ：RTMP>flv>m3u8>mp4
+     */
+    var options = {
+      rtmp: rtmp,
+      flv: flv,
+      flv_hd: flv,
+      flv_sd: flv,
+      m3u8: m3u8,
+      m3u8_hd: m3u8, // || 'http://1251132611.vod2.myqcloud.com/4126dd3evodtransgzp1251132611/8a592f8b9031868222950257296/f0.f230.m3u8',
+      m3u8_sd: m3u8, // || 'http://1251132611.vod2.myqcloud.com/4126dd3evodtransgzp1251132611/8a592f8b9031868222950257296/f0.f220.m3u8',
+      mp4: mp4, // || 'http://1251132611.vod2.myqcloud.com/4126dd3evodtransgzp1251132611/8a592f8b9031868222950257296/f0.f40.mp4',
+      mp4_hd: mp4, // 'http://1251132611.vod2.myqcloud.com/4126dd3evodtransgzp1251132611/8a592f8b9031868222950257296/f0.f40.mp4',
+      mp4_sd: mp4, // 'http://1251132611.vod2.myqcloud.com/4126dd3evodtransgzp1251132611/8a592f8b9031868222950257296/f0.f20.mp4',
+      coverpic: coverpic,
+      autoplay: autoplay,
+      live: live,
+      width: width || '100' + '%',
+      height: height || 'auto'
+    }
+    var player = new TcPlayer('video-container', options)
+    window.tcplayer = player
+
+    player.el.addEventListener('click', function () {
+      eCenterTitle.remove()
+    })
+    // 播放事件，ie 不会触发
+    // player.video.on('play', function () {
+    //   eCenterTitle.remove()
+    // })
+  })()
+</script>
+</body>
+</html><!--[if !IE]>|xGv00|fa2a6dbbcdb0505fd7441a468e5e41a7<![endif]-->

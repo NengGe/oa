@@ -1,0 +1,328 @@
+/* 新建会议 */
+
+//.create-main {
+//    position: absolute;
+//    left: -9999px;
+//    top: -9999px;
+//}
+.new_conmain {
+  max-width: 750px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 2%;
+  padding-right: 2%;
+  .top_main {
+    width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0;
+    padding-top: 6px;
+    padding-bottom: 12px;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-sizing: border-box;
+    .main_item {
+      width: 100%;
+      position: relative;
+      border-bottom: solid 1PX #eee;
+      display: inline-block;
+      padding-bottom: 6px;
+      &:last-child {
+        border-bottom: none;
+      }
+      span {
+        color: #f00;
+      }
+      .item_left {
+        width: 100%;
+        height: 52px;
+        line-height: 52px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #555;
+        position: relative;
+        input {
+          width: 82%;
+          height: 52px;
+          line-height: 52px;
+          font-size: 14px;
+          margin-bottom: 1PX;
+          padding: 0;
+          border: none;
+          background: none;
+          text-align: right;
+          float: right;
+          position: absolute;
+          color: #666;
+          top: 0;
+          right: 0;
+          z-index: 66;
+          opacity: 0;
+          outline: none;
+        }
+        .time-select {
+          width: 80%;
+          height: 50px;
+          position: absolute;
+          top: 0;
+          color: #666;
+          right: 0;
+          text-align: right;
+          box-sizing: border-box;
+          padding-right: 12px;
+        }
+      }
+      input[type=text] {
+        width: 72%;
+        height: 52px;
+        line-height: 52px;
+        font-size: 14px;
+        margin-bottom: 1PX;
+        padding: 0;
+        color: #333;
+        border: none;
+        outline: none;
+      }
+      button {
+        position: absolute;
+        top: 13px;
+        right: 6px;
+        font-size: 14px;
+        color: #666;
+        background: none;
+        border: none;
+        outline: none;
+      }
+      textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        color: #666;
+        padding: 10px 8px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .member-select {
+    margin-top: 12px;
+    h4 {
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+      color: #666;
+      line-height: 48px;
+    }
+    ul {
+      width: 100%;
+      li {
+        display: inline-block;
+        list-style-type: none;
+        margin-right: 6px;
+        float: left;
+        .header-icon {
+          width: 36px;
+          height: 36px;
+          margin-left: 11px;
+          border: 1PX solid #aaa;
+          border-radius: 100%;
+          text-align: center;
+          font-size: 24px;
+          color: #aaa;
+          line-height: 36px;
+          margin-bottom: 4px;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          span {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #f99;
+            border: 1PX solid #f99;
+            font-size: 16px;
+            text-align: center;
+            line-height: 14px;
+            right: -6px;
+            top: -6px;
+          }
+        }
+        p {
+          width: 58px;
+          padding-top: 6px;
+          font-size: 14px;
+          display: inline-block;
+          text-align: center;
+          height: 36px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+.shenpi-sec {
+  padding-top: 4px;
+  margin-top: 6px;
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+  .top {
+    width: 94%;
+    margin-left: 3%;
+    background-color: #fff;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    &:first-child {
+      border-bottom: 1PX solid #eee;
+    }
+    .row {
+      padding: 8px 0 5px;
+      overflow: hidden;
+      .wb {
+        width: 80%;
+        font-size: 16px;
+        margin-bottom: 8px;
+        float: left;
+        color: #666;
+      }
+      .reset {
+        margin-top: 0;
+        color: #5fc7f7;
+        cursor: pointer;
+      }
+      .reset,
+      .switch {
+        width: 20%;
+        float: right;
+        font-size: 16px;
+        text-align: right;
+      }
+      .people {
+        width: 100%;
+        clear: both;
+        margin-bottom: 5px;
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        .people1,
+        .people2,
+        .arraw,
+        .minus {
+          float: left;
+          width: 40px;
+          margin-bottom: 10px;
+          color: #888;
+          font-size: 12px;
+          margin-left: 3px;
+        }
+        .people1 p,
+        .people2 p,
+        .minus p {
+          width: 30px;
+          height: 30px;
+          border: solid 1PX #12b7f5;
+          text-align: center;
+          line-height: 30px;
+          border-radius: 50%;
+          background-color: #eefaff;
+          color: #12b7f5;
+          margin-bottom: 5px;
+          opacity: 0.6;
+        }
+        .people1 p img,
+        .people2 p img {
+          width: 28px;
+        }
+        .people1 label,
+        .people2 label {
+          line-height: 16px;
+          text-align: center;
+          font-style: normal;
+          display: inline-block;
+          width: 40px;
+          margin-left: -4px;
+        }
+        .tb01 {
+          left: 25px;
+          position: absolute;
+          top: -2px;
+          img {
+            width: 16px;
+          }
+        }
+        .minus p {
+          border-style: dashed;
+          border-color: #aaa;
+          background-color: #fff;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.titles {
+  width: 100%;
+  height: 45px;
+  background-color: #12b7f5;
+  line-height: 45px;
+  padding: 0 3%;
+  box-sizing: border-box;
+  display: flex;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  cursor: pointer;
+  .arrow,
+  .plus {
+    flex: 1;
+    font-size: 20px;
+  }
+  .arrow img {
+    width: 27px;
+    margin-top: 9px;
+  }
+  .name {
+    flex: 2;
+    text-align: center;
+    font-size: 18px;
+  }
+  .plus {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.confirm-btn {
+  width: 100%;
+  padding: 32px 0;
+  button {
+    width: 100%;
+    padding: 22px 0;
+    border: none;
+    background: #12b7f5;
+    border-radius: 6px;
+    color: #fff;
+  }
+}
+
+.selectbox {
+  position: absolute;
+  width: 100%;
+  background: #f0f8fc;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  padding-top: 8px;
+}
+

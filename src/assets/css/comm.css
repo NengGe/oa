@@ -1,0 +1,140 @@
+
+/*# 重置 */
+body,p,td,ul,ol,dl,dt,dd,menu{padding:0;margin:0;}
+ol,ul{list-style-type:none;}
+.cancel-reset ol,.cancel-reset ul{
+  list-style: inside ;
+}
+table {border-collapse: collapse;}
+h1,h2,h3,h4,h5,h6{margin:0;font-size:inherit;font-weight:normal;}
+a{color:#333;text-decoration:none;}
+div {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+i{
+  font-style: normal;
+}
+body {
+  color: #333;
+  /*font: 14px/1.2 sans-serif,Microsoft Yahei, arial, SimSun, tahoma, Srial, helvetica;*/
+  font: 14px/1.2 sans-serif,helvetica;
+  /*background-color: #ebebeb;*/
+  -webkit-tap-highlight-color:transparent;
+  overflow-x: hidden;
+}
+
+input,select,textarea{
+  padding:0;margin:0;
+  outline-color: #16B3ED;
+  color: #333;
+  font: 14px/1.2 sans-serif,helvetica;
+}
+input::placeholder,textarea::placeholder,{
+  color: #ccc;
+}
+
+/*# 公共 */
+
+.cf:after {
+  content: '';
+  display: block;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+/* 单行溢出省略 */
+.ep {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clickActive:active {
+  background-color: rgba(153, 153, 153, 0.1) !important;
+}
+.clickActive2:active {
+  opacity: 0.8 !important;
+}
+.page-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+html{
+  font-size: 100px;
+}
+/* 底部 1PX */
+.bottom-one-px, .top-one-px {
+  position: relative;
+}
+.bottom-one-px:after, .top-one-px:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1PX;
+  position: absolute;
+  left: 0px;
+  transform: scaleY(0.5);
+  /* z-index: 100; */
+}
+.bottom-one-px:after{
+
+  bottom: 0px;
+  border-bottom: 1PX solid #ddd;
+}
+.top-one-px:before{
+  top: 0px;
+  border-top: 1PX solid #ddd;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'iconfont-OA';
+  src: url('../fonts/iconfont-OA.ttf') format('truetype');
+}
+
+.page-bg{
+  background-color: #f7f7f9;
+}
+
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconfont-OA {
+  font-family: "iconfont-OA";
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before {
+  content: "\e623";
+}
+
+.icon-erweima:before {
+  content: "\e60c";
+}
+/*.icon-erweima:before {
+  content: "\e629;";
+}*/
+.icon-touxiang:before {
+  content: "\e605";
+}
+.icon-bumen:before {
+  content: "\e649";
+}

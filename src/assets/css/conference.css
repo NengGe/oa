@@ -1,0 +1,138 @@
+/*body {
+  box-sizing: border-box;
+  background: #f0f8fc;
+}*/
+
+.main {
+  /* padding-top: 8px; */
+  max-width: 750px;
+  margin: 0 auto;
+  .mainbox {
+    /* width: 96%; */
+    /* margin-left: 2%; */
+    /* border-radius: 6px; */
+    background: #fff;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+#contant-main {
+  padding-top: 0;
+}
+
+.main_header {
+  width: 100%;
+  z-index: 66;
+  top: 0;
+  left: 0;
+  height: 45px;
+  .tzheader {
+    max-width: 750px;
+    margin: 0 auto;
+    height: 45px;
+    position: relative;
+    h3 {
+      font-size: 18px;
+      line-height: 45px;
+      color: #12b7f5;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 26px;
+      width: 100%;
+      padding-top: 6px;
+      box-sizing: border-box;
+      text-align: center;
+      margin: 0;
+      font-weight: normal;
+      a {
+        display: inline-block;
+        margin: 0;
+        color: #12b7f5;
+        border: 1PX solid #12b7f5;
+        padding: 0 16px;
+        border-radius: 6px;
+      }
+    }
+    div {
+      position: absolute;
+      top: 0;
+      button {
+        background: none;
+        border: none;
+        outline: none;
+      }
+      &.left {
+        left: 0;
+        top: 10px;
+        height: 23px;
+        button {
+          width: 41px;
+          height: 100%;
+          padding: 0;
+          justify-content: center;
+          img {
+            height: 23px;
+          }
+        }
+      }
+      &.right {
+        height: 45px;
+        right: 0;
+        line-height: 45px;
+        button {
+          font-size: 32px;
+          color: #12b7f5;
+          padding: 0;
+          width: 40px;
+          height: 45px;
+          line-height: 45px;
+          margin-top: -4px;
+          font-weight: normal;
+        }
+        a {
+          margin: 0;
+          padding: 0;
+          color: #12b7f5;
+          font-size: 16px;
+          margin-right: 8px;
+          height: 45px;
+          line-height: 45px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.tz-confirmbtn {
+  width: 100%;
+  padding: 0 2% 24px;
+  box-sizing: border-box;
+  button {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    background: #12b7f5;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+
+
+
+
+
+
+

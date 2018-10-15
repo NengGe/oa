@@ -1,0 +1,8 @@
+{
+  "name": "select-popup",
+  "version": "0.0.1",
+  "main": "SelectPopup.vue",
+  "dependencies": {
+
+  }
+}
